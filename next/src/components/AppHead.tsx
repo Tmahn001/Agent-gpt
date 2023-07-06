@@ -6,7 +6,7 @@ const AppHead = () => {
 
   return (
     <Head>
-      <title>AgentGPT</title>
+      <title>FGTAgentGPT</title>
       <meta name="description" content={description} />
       <meta name="twitter:site" content="@AgentGPT" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -26,7 +26,7 @@ const AppHead = () => {
         name="google-site-verification"
         content="sG4QDkC8g2oxKSopgJdIe2hQ_SaJDaEaBjwCXZNkNWA"
       />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="https://futureglobaltech.com/wp-content/uploads/2023/05/Future-Global-Tech-Favicon.png" />
     </Head>
   )
 }
