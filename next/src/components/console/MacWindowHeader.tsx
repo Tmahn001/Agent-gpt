@@ -3,7 +3,7 @@ import * as htmlToImage from "html-to-image";
 import WindowButton from "../WindowButton";
 import { FaImage } from "react-icons/fa";
 import PDFButton from "../pdf/PDFButton";
-import PopIn from "../motions/popin";
+// import PopIn from "../motions/popin";
 import Expand from "../motions/expand";
 import Menu from "../Menu";
 import { CgExport } from "react-icons/cg";
@@ -96,7 +96,7 @@ export const MacWindowHeader = (props: HeaderProps) => {
 
   return (
     <div className="flex items-center gap-1 overflow-visible rounded-t-3xl p-3">
-      <PopIn delay={0.4}>
+      {/* <PopIn delay={0.4}>
         <div className="h-3 w-3 rounded-full bg-red-500" />
       </PopIn>
       <PopIn delay={0.5}>
@@ -104,10 +104,10 @@ export const MacWindowHeader = (props: HeaderProps) => {
       </PopIn>
       <PopIn delay={0.6}>
         <div className="h-3 w-3 rounded-full bg-green-500" />
-      </PopIn>
+      </PopIn> */}
       <Expand
         delay={0.75}
-        className="flex flex-grow font-mono text-xs font-bold text-gray-500 sm:ml-2 sm:text-sm"
+        className="flex flex-grow font-mono text-xs font-bold text-white-500 sm:ml-2 sm:text-sm"
       >
         {props.title}
       </Expand>
@@ -128,7 +128,7 @@ export const MacWindowInternal = (props: MacWindowInternalProps) => {
         props.className
       )}
     >
-      <PopIn delay={0.4}>
+      {/* <PopIn delay={0.4}>
         <div className="h-2 w-2 rounded-full bg-red-500" />
       </PopIn>
       <PopIn delay={0.5}>
@@ -136,7 +136,7 @@ export const MacWindowInternal = (props: MacWindowInternalProps) => {
       </PopIn>
       <PopIn delay={0.6}>
         <div className="h-2 w-2 rounded-full bg-green-500" />
-      </PopIn>
+      </PopIn> */}
       <Expand
         delay={0.75}
         className="ml-1 flex flex-grow font-mono text-[8pt] font-bold text-gray-400"

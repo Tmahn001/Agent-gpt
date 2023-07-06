@@ -20,7 +20,7 @@ const SearchBar: FC<SearchBarProps> = ({ setSearchQuery, setCategory }) => {
       <div className="flex w-full flex-grow space-x-2">
         <input
           type="search"
-          className="flex-grow rounded-md border border-white/20 bg-zinc-900 py-1 text-white placeholder-white shadow-sm focus:border-white focus:outline-none focus:ring-white"
+          className="flex-grow rounded-md border border-white/20 bg-[#00162F] py-1 text-white placeholder-white shadow-sm focus:border-white focus:outline-none focus:ring-white"
           placeholder="Search"
           aria-label="Search"
           aria-describedby="button-addon2"
@@ -32,7 +32,7 @@ const SearchBar: FC<SearchBarProps> = ({ setSearchQuery, setCategory }) => {
         <select
           id="category"
           name="category"
-          className="block w-full rounded-md border border-white/20 bg-zinc-900 px-2 py-1 text-white shadow-sm focus:border-white focus:outline-none focus:ring-white sm:text-sm"
+          className="block w-full rounded-md border border-white/20 bg-[#00162F] px-2 py-1 text-white shadow-sm focus:border-white focus:outline-none focus:ring-white sm:text-sm"
           onChange={handleCategoryChange}
         >
           <option value="">All</option>

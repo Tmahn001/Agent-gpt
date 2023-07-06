@@ -33,7 +33,7 @@ const DashboardLayout = (props: PropsWithChildren) => {
 
       <main
         className={clsx(
-          "bg-gradient-to-b from-[#2B2B2B] to-[#1F1F1F] duration-300",
+          "bg-gradient-to-b from-[#00162F] to-[#00162fcb] duration-300",
           desktopSidebarOpen && "lg:pl-64"
         )}
       >

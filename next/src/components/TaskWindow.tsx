@@ -38,12 +38,12 @@ export const TaskWindow = ({ visibleOnMobile }: TaskWindowProps) => {
   return (
     <Expand
       className={clsx(
-        "h-full flex-col items-center rounded-2xl border-2 border-white/20 bg-zinc-900 font-mono shadow-2xl",
+        "h-full flex-col items-center rounded border-2 border-[#5076F6] bg-[#00162F] font-mono shadow-2xl",
         "w-full xl:ml-2 xl:flex xl:w-64 xl:px-1",
         !visibleOnMobile && "hidden"
       )}
     >
-      <div className="sticky top-0 my-1 flex items-center justify-center gap-2 bg-zinc-900 p-2 text-gray-100 ">
+      <div className="sticky top-0 my-1 flex items-center justify-center gap-2 bg-[#5076F6] rounded p-2 text-gray-100 ">
         <FaListAlt /> {t("Current tasks")}
       </div>
       <div className="flex h-full w-full flex-col gap-1 overflow-auto p-1">

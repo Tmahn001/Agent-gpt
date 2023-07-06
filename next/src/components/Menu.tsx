@@ -16,7 +16,7 @@ function Menu({ icon, name, items, chevron, buttonPosition = "top" }: MenuProps)
   return (
     <MenuPrimitive>
       <div className="relative">
-        <MenuPrimitive.Button className="neutral-button-primary flex h-8 items-center gap-1 rounded-lg  border p-2 font-bold">
+        <MenuPrimitive.Button className=" flex h-8 items-center gap-1 rounded-lg border-[#5076F6] text-[#fff] border p-2 font-bold hover:text-[#5076F6]">
           <div>{icon}</div>
           {name && <p className="text-gray/50 font-mono text-sm">{name}</p>}
           {chevron && <FaChevronDown size={15} className="ml-2" />}

@@ -30,18 +30,18 @@ const Sidebar = ({ show, setShow }: SidebarProps) => {
 
   return (
     <SidebarTransition show={show}>
-      <nav className="background-color-1 flex flex-1 flex-col px-2.5 py-2 ring-1 ring-white/10">
+      <nav className=" flex flex-1 flex-col bg-[#00162F] px-2.5 py-2 ring-2 ring-[#5076F6]">
         <div className="flex flex-row items-center justify-between">
           <Image
             src="logo-white.svg"
-            width="25"
+            width="20"
             height="25"
             alt="Reworkd AI"
             className="ml-2 invert dark:invert-0"
           />
           <h1 className="text-color-primary font-mono font-extrabold">My Agents</h1>
           <button
-            className="neutral-button-primary rounded-md border-none transition-all"
+            className="text-[#5076F6] bg-[#00162F]  rounded-md border-2 border-[#5076F6] transition-all"
             onClick={() => setShow(!show)}
           >
             <FaBars size="15" className="z-20 m-2" />
@@ -83,7 +83,7 @@ const Sidebar = ({ show, setShow }: SidebarProps) => {
         </div>
         <ul role="list" className="flex flex-col">
           <ul className="mb-2">
-            <div className="text-color-secondary mb-2 ml-2 text-xs font-semibold">Pages</div>
+            <div className="text-[#fff]  mb-2 ml-2 text-xs font-bold">Pages</div>
             {PAGE_LINKS.map((link, i) => {
               if (router.route == link.href) {
                 return null;
@@ -173,7 +173,7 @@ const SidebarTransition = ({ children, show }: SidebarTransitionProps) => {
 export const SidebarControlButton = ({ show, setShow }: SidebarProps) => {
   return (
     <button
-      className="neutral-button-primary fixed z-20 m-1 rounded-md border border-shade-300-light transition-all sm:m-2"
+      className="text-[#5076F6] bg-[#00162F] fixed z-20 m-1 rounded-md border-2 border-[#5076F6] transition-all sm:m-2"
       onClick={() => setShow(!show)}
     >
       <FaBars size="15" className="m-2" />

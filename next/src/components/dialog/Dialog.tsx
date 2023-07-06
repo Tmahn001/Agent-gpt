@@ -46,7 +46,7 @@ const Dialog = ({
           </div>
           {/*footer*/}
           <div className="flex items-center justify-end gap-2 rounded-b border-t-2 border-solid border-white/20 p-2">
-            <Button enabledClassName="bg-yellow-600 hover:bg-yellow-500" onClick={close}>
+            <Button enabledClassName="bg-[#5076F6]-600 hover:bg-sky-500" onClick={close}>
               {`${t("CLOSE", { ns: "common" })}`}
             </Button>
             {footerButton}
@@ -72,7 +72,7 @@ export const DialogBackground = ({ isShown, children, close }: DialogBackgroundP
     <div
       className={clsx(
         "fixed inset-0 z-40 flex items-center justify-center overflow-hidden",
-        "bg-black/70 p-3 font-mono text-white outline-none backdrop-blur-sm transition-all"
+        "bg-black/70 p-3 font-mono text-sky outline-none backdrop-blur-sm transition-all"
       )}
       onClick={close}
     >
