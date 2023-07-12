@@ -1,7 +1,9 @@
 import Image from "next/image";
-import { FaBars } from "react-icons/fa";
+// import React from "react";
+import { FaBars, FaCog } from "react-icons/fa";
 import FadingHr from "../FadingHr";
 import { DrawerItemButton, DrawerItemButtonLoader } from "./DrawerItemButton";
+import { ToolsDialog } from "../dialog/ToolsDialog";
 import { PAGE_LINKS, SOCIAL_LINKS } from "../sidebar/links";
 import LinkItem from "../sidebar/LinkItem";
 import LinkIconItem from "../sidebar/LinkIconItem";
@@ -11,14 +13,16 @@ import { useAuth } from "../../hooks/useAuth";
 import { useTranslation } from "next-i18next";
 import { api } from "../../utils/api";
 import type { ReactNode } from "react";
-import { Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { Transition } from "@headlessui/react";
+import Button from "../Button";
 
 type SidebarProps = {
   show: boolean;
   setShow: (boolean) => void;
 };
 const Sidebar = ({ show, setShow }: SidebarProps) => {
+  const [showToolsDialog, setShowToolsDialog] = useState(false);
   const router = useRouter();
   const { session, signIn, signOut, status } = useAuth();
   const [t] = useTranslation("drawer");
@@ -41,7 +45,7 @@ const Sidebar = ({ show, setShow }: SidebarProps) => {
           />
           <h1 className="text-color-primary font-mono font-extrabold">My Agents</h1>
           <button
-            className="text-[#5076F6] bg-[#00162F]  rounded-md border-2 border-[#5076F6] transition-all"
+            className="rounded-md border-2  border-[#5076F6] bg-[#00162F] text-[#5076F6] transition-all"
             onClick={() => setShow(!show)}
           >
             <FaBars size="15" className="z-20 m-2" />
@@ -83,7 +87,7 @@ const Sidebar = ({ show, setShow }: SidebarProps) => {
         </div>
         <ul role="list" className="flex flex-col">
           <ul className="mb-2">
-            <div className="text-[#fff]  mb-2 ml-2 text-xs font-bold">Pages</div>
+            <div className="mb-2  ml-2 text-xs font-bold text-[#fff]">Pages</div>
             {PAGE_LINKS.map((link, i) => {
               if (router.route == link.href) {
                 return null;
@@ -103,6 +107,15 @@ const Sidebar = ({ show, setShow }: SidebarProps) => {
                 </LinkItem>
               );
             })}
+            <ToolsDialog show={showToolsDialog} close={() => setShowToolsDialog(false)} />
+            <Button
+              ping
+              onClick={() => setShowToolsDialog(true)}
+              className="border-white/20 bg-gradient-to-t from-sky-500 to-sky-600 transition-all hover:bg-gradient-to-t hover:from-sky-400 hover:to-sky-600"
+            >
+              <p className="mr-3">Tools</p>
+              <FaCog />
+            </Button>
           </ul>
           <li className="mb-2">
             <div className="flex items-center justify-center gap-3">
@@ -173,7 +186,7 @@ const SidebarTransition = ({ children, show }: SidebarTransitionProps) => {
 export const SidebarControlButton = ({ show, setShow }: SidebarProps) => {
   return (
     <button
-      className="text-[#5076F6] bg-[#00162F] fixed z-20 m-1 rounded-md border-2 border-[#5076F6] transition-all sm:m-2"
+      className="fixed z-20 m-1 rounded-md border-2 border-[#5076F6] bg-[#00162F] text-[#5076F6] transition-all sm:m-2"
       onClick={() => setShow(!show)}
     >
       <FaBars size="15" className="m-2" />

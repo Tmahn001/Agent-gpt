@@ -13,7 +13,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { languages } from "../utils/languages";
 import nextI18NextConfig from "../../next-i18next.config.js";
 import { SignInDialog } from "../components/dialog/SignInDialog";
-import { ToolsDialog } from "../components/dialog/ToolsDialog";
+// import { ToolsDialog } from "../components/dialog/ToolsDialog";
 import DashboardLayout from "../layout/dashboard";
 import AppTitle from "../components/AppTitle";
 import FadeIn from "../components/motions/FadeIn";
@@ -136,7 +136,7 @@ const Home: NextPage = () => {
   return (
     <DashboardLayout>
       <HelpDialog />
-      <ToolsDialog show={showToolsDialog} close={() => setShowToolsDialog(false)} />
+      {/* <ToolsDialog show={showToolsDialog} close={() => setShowToolsDialog(false)} /> */}
 
       <SignInDialog show={showSignInDialog} close={() => setShowSignInDialog(false)} />
       <div id="content" className="flex min-h-screen w-full items-center justify-center">
@@ -213,12 +213,12 @@ const Home: NextPage = () => {
                   <div className="flex w-full flex-row items-end gap-2 md:items-center">
                     <Input
                       inputRef={nameInputRef}
-                      left={
-                        <>
-                          <FaRobot />
-                          <span className="ml-2">{`${t("AGENT_NAME")}`}</span>
-                        </>
-                      }
+                      // left={
+                      //   <>
+                      //     <FaRobot />
+                      //     <span className="ml-2">{`${t("AGENT_NAME")}`}</span>
+                      //   </>
+                      // }
                       value={nameInput}
                       disabled={agent != null}
                       onChange={(e) => setNameInput(e.target.value)}
@@ -226,22 +226,22 @@ const Home: NextPage = () => {
                       placeholder="AgentGPT"
                       type="text"
                     />
-                    <Button
+                    {/* <Button
                       ping
                       onClick={() => setShowToolsDialog(true)}
                       className="border-white/20 bg-gradient-to-t from-sky-500 to-sky-600 transition-all hover:bg-gradient-to-t hover:from-sky-400 hover:to-sky-600"
                     >
                       <p className="mr-3">Tools</p>
                       <FaCog />
-                    </Button>
+                    </Button> */}
                   </div>
                   <Input
-                    left={
-                      <>
-                        <FaStar />
-                        <span className="ml-2">{`${t("LABEL_AGENT_GOAL")}`}</span>
-                      </>
-                    }
+                    // left={
+                    //   <>
+                    //     <FaStar />
+                    //     <span className="ml-2">{`${t("LABEL_AGENT_GOAL")}`}</span>
+                    //   </>
+                    // }
                     disabled={agent != null}
                     value={goalInput}
                     onChange={(e) => setGoalInput(e.target.value)}
