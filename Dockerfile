@@ -5,7 +5,7 @@ FROM node:14
 
 
 # Copy the setup.sh script to the container
-COPY setup.sh /app/setup.sh
+COPY setup.sh /app/setup.sh  --docker-compose
 
 # Copy the next directory to the container
 COPY next /app/next
