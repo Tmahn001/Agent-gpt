@@ -4,6 +4,15 @@ FROM node:14
 # Set the environment variable for memory limit
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json files to the container
+COPY next/package*.json /app/
+
+# Install dependencies with caching layer
+RUN npm ci
+
 # Copy the setup.sh script to the container
 COPY setup.sh /app/setup.sh
 
@@ -23,8 +32,5 @@ COPY docs /app/docs
 # Make the setup.sh script executable
 RUN chmod +x /app/setup.sh
 
-# Set the working directory
-WORKDIR /app
-
 # Run the setup.sh script with the --docker-compose argument
-CMD ["/bin/bash", "/app/setup.sh", "--docker-compose"]
+CMD ["/bin/bash", "/app/setup.sh", "--docker-compose", "--timeout 500"]
