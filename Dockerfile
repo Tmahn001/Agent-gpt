@@ -1,6 +1,9 @@
 # Use a base image with the necessary dependencies
 FROM node:14
 
+# Set the environment variable for memory limit
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
 # Copy the setup.sh script to the container
 COPY setup.sh /app/setup.sh
 
