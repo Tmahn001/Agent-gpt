@@ -30,10 +30,17 @@ RUN apk add --no-cache dos2unix netcat-openbsd \
     && dos2unix /entrypoint.sh
 
 
-# Expose the port the app will run on
+COPY --from=builder /app/public ./public
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
 EXPOSE 3000
 
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+ENV PORT 3000
 
-# Start the application
-CMD ["npm", "run", "dev"]
+CMD ["node", "server.js"]
