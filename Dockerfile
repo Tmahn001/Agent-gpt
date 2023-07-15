@@ -9,7 +9,7 @@ COPY setup.sh /app/setup.sh
 
 # Copy the next directory to the container
 COPY next /app/next
-
+COPY next /app/cli
 # Copy the platform directory to the container
 COPY platform /app/platform
 
