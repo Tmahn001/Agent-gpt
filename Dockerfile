@@ -2,11 +2,14 @@
 FROM node:14
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /
 
 # Copy the setup.sh script to the container
-COPY setup.sh /app/setup.sh
+COPY setup.sh /setup.sh
+
+# Make the setup.sh script executable
+RUN chmod +x /setup.sh
 
 # Run the setup.sh script
-RUN chmod +x /app/setup.sh
-CMD ["/bin/bash", "/app/setup.sh"]
+CMD ["/bin/bash", "/setup.sh"]
+
