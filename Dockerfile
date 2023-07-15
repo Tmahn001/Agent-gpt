@@ -33,4 +33,4 @@ COPY docs /app/docs
 RUN chmod +x /app/setup.sh
 
 # Run the setup.sh script with the --docker-compose argument
-CMD ["/bin/bash", "/app/setup.sh", "--docker-compose", "--timeout 500"]
+CMD ["/bin/bash", "/app/setup.sh", "--docker-compose", "--timeout", "500"]
