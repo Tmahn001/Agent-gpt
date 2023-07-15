@@ -8,7 +8,6 @@ npm install
 
 # Build the Next.js app
 npm run build
-
 # Start the production server
 npm run start
 

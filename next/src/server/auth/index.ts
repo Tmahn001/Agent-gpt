@@ -8,7 +8,7 @@ import type { IncomingMessage, ServerResponse } from "http";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "../db";
 import type { Adapter } from "next-auth/adapters";
-import { env } from "../../env/server.mjs";
+import { env } from "../../env/client.mjs";
 
 const commonOptions: Partial<AuthOptions> & { adapter: Adapter } = {
   adapter: PrismaAdapter(prisma),

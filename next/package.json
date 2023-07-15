@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "next build --no-lint",
-    "dev": "next dev",
+    "dev": "./env.sh && next dev",
     "postinstall": "prisma generate",
     "lint": "cross-env SKIP_ENV_VALIDATION=1 next lint",
     "start": "next start",
@@ -55,7 +55,7 @@
     "superjson": "1.9.1",
     "tailwindcss-radix": "^2.8.0",
     "uuid": "^9.0.0",
-    "zod": "^3.20.2",
+    "zod": "^3.21.4",
     "zustand": "^4.3.7"
   },
   "devDependencies": {

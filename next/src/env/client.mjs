@@ -1,4 +1,3 @@
-// @ts-check
 import { clientEnv, clientSchema } from "./schema.mjs";
 
 const _clientEnv = clientSchema.safeParse(clientEnv);
@@ -33,3 +32,5 @@ for (let key of Object.keys(_clientEnv.data)) {
 }
 
 export const env = _clientEnv.data;
+
+

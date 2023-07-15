@@ -51,3 +51,5 @@ yarn-error.log*
 # Sentry Auth Token
 .sentryclirc
 /volumes/
+
+/public/__env.js

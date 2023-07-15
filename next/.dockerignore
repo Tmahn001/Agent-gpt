@@ -5,3 +5,4 @@
 **/aws
 **/.husky
 **/venv
+**/public/__env.js
