@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:19-alpine
+FROM node:14-alpine
 
 ARG NODE_ENV
 
@@ -14,8 +14,11 @@ WORKDIR /next
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install dependencies
 RUN npm ci
+
+# Install dependencies
+
+
 
 # Copy the wait-for-db.sh script
 COPY wait-for-db.sh /usr/local/bin/wait-for-db.sh
@@ -30,17 +33,10 @@ RUN apk add --no-cache dos2unix netcat-openbsd \
     && dos2unix /entrypoint.sh
 
 
-COPY --from=builder /app/public ./public
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-USER nextjs
-
+# Expose the port the app will run on
 EXPOSE 3000
 
-ENV PORT 3000
+ENTRYPOINT ["sh", "/entrypoint.sh"]
 
-CMD ["node", "server.js"]
+# Start the application
+CMD ["npm", "run", "dev"]
