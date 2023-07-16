@@ -9,6 +9,7 @@ COPY setup.sh .
 
 # Make the setup.sh script executable
 RUN chmod +x setup.sh
+RUN apk add --no-cache bash
 
 # Run the setup.sh script when the container starts
 CMD ["./setup.sh"]
