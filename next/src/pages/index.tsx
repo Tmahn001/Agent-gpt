@@ -223,8 +223,8 @@ const Home: NextPage = () => {
                       disabled={agent != null}
                       onChange={(e) => setNameInput(e.target.value)}
                       onKeyDown={(e) => handleKeyPress(e)}
-                      placeholder="AgentGPT"
-                      type="text"
+                      placeholder="Name"
+                      type="Describe Task"
                     />
                     {/* <Button
                       ping
