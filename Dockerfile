@@ -27,7 +27,7 @@ COPY next/package*.json ./
 RUN npm ci
 
 # Copy the wait-for-db.sh script
-COPY wait-for-db.sh /usr/local/bin/wait-for-db.sh
+COPY wait-for-db.sh next/usr/local/bin/wait-for-db.sh
 RUN chmod +x /usr/local/bin/wait-for-db.sh
 
 # Copy the rest of the frontend application code

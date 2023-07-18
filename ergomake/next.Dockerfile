@@ -1,19 +1,3 @@
-# Use the appropriate base image for your backend (Python, for example)
-FROM python:3.11-slim-buster as prod
-
-# Set the working directory
-WORKDIR /app
-
-# Install dependencies
-COPY platform/requirements.txt .
-RUN pip install -r requirements.txt
-
-# Copy the backend source code
-COPY platform/ .
-
-# Run the backend application
-CMD ["python", "app.py"]
-
 # Use the official Node.js image as the base image
 FROM node:19-alpine
 
@@ -33,28 +17,35 @@ ENV DATABASE_URL=$DATABASE_URL
 ARG NEXTAUTH_SECRET
 ENV NEXTAUTH_SECRET=$NEXTAUTH_SECRET
 
-# Set the working directory for the frontend
+# Needed for the wait-for-db script
+RUN apk add --no-cache netcat-openbsd
+
+# Set the working directory
 WORKDIR /next
 
 # Copy package.json and package-lock.json to the working directory
-COPY next/package*.json ./
+COPY package*.json ./
 
 # Install dependencies
 RUN npm ci
 
-# Copy the wait-for-db.sh script from the next folder
-COPY wait-for-db.sh next/usr/local/bin/wait-for-db.sh
+# Copy the wait-for-db.sh script
+COPY wait-for-db.sh /usr/local/bin/wait-for-db.sh
 RUN chmod +x /usr/local/bin/wait-for-db.sh
 
-# Copy the rest of the frontend application code
-COPY next/ .
+# Copy the rest of the application code
+COPY . .
+COPY entrypoint.sh /
+
+# Ensure correct line endings after these files are edited by windows
+RUN apk add --no-cache dos2unix netcat-openbsd \
+    && dos2unix /entrypoint.sh
+
+RUN npx prisma generate
+RUN npm run build
 
 # Expose the port the app will run on
 EXPOSE 3000
-
-# Start the application
-CMD ["npm", "start"]
-
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
 
