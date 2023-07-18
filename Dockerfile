@@ -48,3 +48,4 @@ EXPOSE 3000
 
 # Set the entrypoint and start the application
 ENTRYPOINT ["sh", "/usr/local/bin/wait-for-db.sh", "npm", "start"]
+
